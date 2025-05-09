@@ -1,0 +1,164 @@
+cubes:
+  - name: bespoke_4571
+    sql_table: client_2874.bespoke_4571_s1_1_policies_related_own_workforce
+
+    joins: []
+
+    dimensions:
+      - name: answer_id
+        sql: answer_id
+        type: number
+        shown: true
+
+      - name: company_unit_id
+        sql: company_unit_id
+        type: number
+        primary_key: true
+        shown: true  
+
+      - name: location_id
+        sql: location_id
+        type: number
+
+      - name: immediate_parent_id
+        sql: immediate_parent_id
+        type: number
+
+      - name: latitude
+        sql: latitude
+        type: number
+
+      - name: longitude
+        sql: longitude
+        type: number
+
+      - name: financial_year_start_month
+        sql: financial_year_start_month
+        type: number
+
+      - name: financial_year_start_day
+        sql: financial_year_start_day
+        type: number
+
+      - name: company_unit_name
+        sql: company_unit_name
+        type: string
+
+      - name: immediate_parent_name
+        sql: immediate_parent_name
+        type: string
+
+      - name: external_id
+        sql: external_id
+        type: string
+
+      - name: company
+        sql: company
+        type: string
+
+      - name: level_1
+        sql: level_1
+        type: string
+
+      - name: facility_type
+        sql: facility_type
+        type: string
+
+      - name: company_unit_type
+        sql: company_unit_type
+        type: string
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: continent
+        sql: continent
+        type: string
+
+      - name: country
+        sql: country
+        type: string
+
+      - name: state
+        sql: state
+        type: string
+
+      - name: country_code
+        sql: country_code
+        type: string
+
+      - name: state_code
+        sql: state_code
+        type: string
+
+      - name: material_impacts_risks
+        sql: '{CUBE}."30686_describe_business_policies_manage_material_impacts_risks_"'
+        type: string
+
+      - name: commitments_related_inclusion
+        sql: '{CUBE}."30695_disclose_any_specific_policy_commitments_related_inclusio"'
+        type: string
+        shown: true
+
+      - name: policies
+        sql: '{CUBE}."30696_disclose_whether_how_business_has_implemented_policies_en"'
+        type: string
+
+      - name: policies_relevant
+        sql: '{CUBE}."30690_disclose_whether_how_business_policies_aligned_with_relev"'
+        type: string
+
+      - name: policies_specifically_address
+        sql: '{CUBE}."30693_disclose_whether_business_has_policies_specifically_addre"'
+        type: string
+
+      - name: relation_engagement
+        sql: '{CUBE}."30688_disclose_business_general_approach_relation_engagement_wi"'
+        type: string
+
+      - name: relation_measures
+        sql: '{CUBE}."30689_disclose_business_general_approach_relation_measures_prov"'
+        type: string
+
+      - name: relation_respect
+        sql: '{CUBE}."30687_disclose_business_general_approach_relation_respect_for_h"'
+        type: string
+
+      - name: other_description
+        sql: '{CUBE}."30694_if_previous_answer_was_other_describe_other_here"'
+        type: string
+
+      - name: workplace_accident_prevention
+        sql: '{CUBE}."30692_state_whether_business_has_workplace_accident_prevention_"'
+        type: string
+
+      - name: policies_explicitly_address
+        sql: '{CUBE}."30691_state_whether_business_has_policies_explicitly_address_hu"'
+        type: string
+
+      - name: answer_start_date
+        sql: answer_start_date
+        type: time
+        shown: true
+
+      - name: answer_end_date
+        sql: answer_end_date
+        type: time
+
+      - name: open_date
+        sql: open_date
+        type: time
+
+      - name: close_date
+        sql: close_date
+        type: time
+
+    measures:
+      - name: count
+        type: count
+
+    pre_aggregations:
+      # Pre-aggregation definitions go here.
+      # Learn more in the documentation: https://cube.dev/docs/caching/pre-aggregations/getting-started
+

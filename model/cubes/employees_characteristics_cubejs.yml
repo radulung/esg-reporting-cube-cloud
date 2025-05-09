@@ -1,0 +1,182 @@
+cubes:
+  - name: employees_characteristics_cubejs
+    sql_table: client_2874.bespoke_4484_s1_6_characteristics_undertaking_s_employees_emplo
+    
+    # Make the cube name more readable and maintainable
+    title: Employee Characteristics
+    
+    joins: []
+    
+    dimensions:
+      - name: answer_id
+        sql: answer_id
+        type: number
+      
+      - name: company_unit_id
+        sql: company_unit_id
+        type: number
+      
+      - name: location_id
+        sql: location_id
+        type: number
+      
+      - name: immediate_parent_id
+        sql: immediate_parent_id
+        type: number
+      
+      - name: latitude
+        sql: latitude
+        type: number
+      
+      - name: longitude
+        sql: longitude
+        type: number
+      
+      - name: financial_year_start_month
+        sql: financial_year_start_month
+        type: number
+      
+      - name: financial_year_start_day
+        sql: financial_year_start_day
+        type: number
+      
+      - name: employees_with_non_guaranteed_hours
+        sql: 29892_state_number_employees_with_non_guaranteed_hours_own_work
+        type: number
+      
+      - name: female_employees_with_non_guaranteed_hours
+        sql: 29891_state_number_female_employees_with_non_guaranteed_hours_o
+        type: number
+      
+      - name: full_time_employees
+        sql: 29886_state_number_full_time_employees_own_workforce_this_count
+        type: number
+      
+      - name: full_time_female_employees
+        sql: 29885_state_number_full_time_female_employees_own_workforce_thi
+        type: number
+      
+      - name: full_time_male_employees
+        sql: 29884_state_number_full_time_male_employees_own_workforce_this_
+        type: number
+        title: Full Time Male Employees Own Workforce
+      
+      - name: male_employees_with_non_guaranteed_hours
+        sql: 29890_state_number_male_employees_with_non_guaranteed_hours_own
+        type: number
+      
+      - name: temporary_employees
+        sql: 29889_state_number_temporary_employees_own_workforce_this_count
+        type: number
+      
+      - name: temporary_female_employees
+        sql: 29888_state_number_temporary_female_employees_own_workforce_thi
+        type: number
+      
+      - name: temporary_male_employees
+        sql: 29887_state_number_temporary_male_employees_own_workforce_this_
+        type: number
+        title: Temporary Male Employees Own Workforce
+      
+      - name: company_unit_name
+        sql: company_unit_name
+        type: string
+      
+      - name: immediate_parent_name
+        sql: immediate_parent_name
+        type: string
+      
+      - name: external_id
+        sql: external_id
+        type: string
+      
+      - name: company
+        sql: company
+        type: string
+      
+      - name: level_1
+        sql: level_1
+        type: string
+      
+      - name: facility_type
+        sql: facility_type
+        type: string
+      
+      - name: company_unit_type
+        sql: company_unit_type
+        type: string
+      
+      - name: city
+        sql: city
+        type: string
+      
+      - name: continent
+        sql: continent
+        type: string
+      
+      - name: country
+        sql: country
+        type: string
+      
+      - name: state
+        sql: state
+        type: string
+      
+      - name: country_code
+        sql: country_code
+        type: string
+      
+      - name: state_code
+        sql: state_code
+        type: string
+      
+      - name: has_more_than_50_employees
+        sql: 29883_does_this_country_have_more_than_50_employees
+        type: string
+      
+      - name: country_business_operates
+        sql: 29882_state_country_business_operates
+        type: string
+      
+      - name: answer_start_date
+        sql: answer_start_date
+        type: time
+      
+      - name: answer_end_date
+        sql: answer_end_date
+        type: time
+      
+      - name: open_date
+        sql: open_date
+        type: time
+      
+      - name: close_date
+        sql: close_date
+        type: time
+    
+    measures:
+      - name: count
+        type: count
+      
+      # Add some meaningful measures based on the available dimensions
+      - name: avg_full_time_employees
+        sql: "{full_time_employees}"
+        type: avg
+      
+      - name: total_temporary_employees
+        sql: "{temporary_employees}"
+        type: sum
+    
+    pre_aggregations:
+      # Pre-aggregation definitions go here
+      - name: employee_stats_by_location
+        measures:
+          - count
+          - avg_full_time_employees
+          - total_temporary_employees
+        dimensions:
+          - country
+          - state
+          - city
+        time_dimension: answer_start_date
+        granularity: month
