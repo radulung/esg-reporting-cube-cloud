@@ -11,19 +11,44 @@
 # In this case, the customers' city dimension is prefixed with the cube name,
 # resulting in "customers_city" when querying the view.
 
-# views:
-#   - name: example_view
-#
-#     cubes:
-#       - join_path: orders
-#         includes:
-#           - status
-#           - created_date
-#
-#           - total_amount
-#           - count
-#
-#       - join_path: orders.customers
-#         prefix: true
-#         includes:
-#           - city
+views:
+  - name: example_view
+
+    cubes:
+      - join_path: bespoke_4571_s1_1_policies_related_own_workforce
+        includes:
+          - answer_id
+          - company_unit_id
+          - location_id
+          - immediate_parent_id
+          - latitude
+          - longitude
+          - financial_year_start_month
+          - financial_year_start_day
+          - company_unit_name
+          - immediate_parent_name
+          - external_id
+          - company
+          - level_1
+          - facility_type
+          - company_unit_type
+          - city
+          - continent
+          - country
+          - state
+          - country_code
+          - state_code
+          - answer_start_date
+          - answer_end_date
+          - open_date
+          - close_date
+          - if_previous_answer_was_other_describe_other_here
+          
+          - describe_business_policies_manage_material_impacts_risks
+          - disclose_any_specific_policy_commitments_related_inclusio
+          - disclose_whether_how_business_has_implemented_policies_en
+          - disclose_whether_how_business_policies_aligned_with_relev
+          - disclose_whether_business_has_policies_specifically_addre
+          - disclose_business_general_approach_relation_engagement_wi
+          - disclose_business_general_approach_relation_measures_prov
+          - disclose_business_general_approach_relation_respect_for_h

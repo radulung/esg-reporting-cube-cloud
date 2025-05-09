@@ -1,5 +1,5 @@
 cubes:
-  - name: employees_characteristics
+  - name: employees_characteristics_cubejs
     sql_table: client_2874.bespoke_4484_s1_6_characteristics_undertaking_s_employees_emplo
     
     # Make the cube name more readable and maintainable
