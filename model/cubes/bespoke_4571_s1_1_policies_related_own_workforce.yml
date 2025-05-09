@@ -1,5 +1,5 @@
 cubes:
-  - name: bespoke_4571_s1_1_policies_related_own_workforce
+  - name: bespoke_4571
     sql_table: client_2874.bespoke_4571_s1_1_policies_related_own_workforce
 
     joins: []
@@ -92,54 +92,55 @@ cubes:
         sql: state_code
         type: string
 
-      - name: describe_business_policies_manage_material_impacts_risks
+      - name: material_impacts_risks
         sql: '{CUBE}."30686_describe_business_policies_manage_material_impacts_risks_"'
         type: string
 
-      - name: disclose_any_specific_policy_commitments_related_inclusio
+      - name: commitments_related_inclusion
         sql: '{CUBE}."30695_disclose_any_specific_policy_commitments_related_inclusio"'
         type: string
         shown: true
 
-      - name: disclose_whether_how_business_has_implemented_policies_en
+      - name: policies
         sql: '{CUBE}."30696_disclose_whether_how_business_has_implemented_policies_en"'
         type: string
 
-      - name: disclose_whether_how_business_policies_aligned_with_relev
+      - name: policies_relevant
         sql: '{CUBE}."30690_disclose_whether_how_business_policies_aligned_with_relev"'
         type: string
 
-      - name: disclose_whether_business_has_policies_specifically_addre
+      - name: policies_specifically_address
         sql: '{CUBE}."30693_disclose_whether_business_has_policies_specifically_addre"'
         type: string
 
-      - name: disclose_business_general_approach_relation_engagement_wi
+      - name: relation_engagement
         sql: '{CUBE}."30688_disclose_business_general_approach_relation_engagement_wi"'
         type: string
 
-      - name: disclose_business_general_approach_relation_measures_prov
+      - name: relation_measures
         sql: '{CUBE}."30689_disclose_business_general_approach_relation_measures_prov"'
         type: string
 
-      - name: disclose_business_general_approach_relation_respect_for_h
+      - name: relation_respect
         sql: '{CUBE}."30687_disclose_business_general_approach_relation_respect_for_h"'
         type: string
 
-      - name: if_previous_answer_was_other_describe_other_here
+      - name: other_description
         sql: '{CUBE}."30694_if_previous_answer_was_other_describe_other_here"'
         type: string
 
-      - name: state_whether_business_has_workplace_accident_prevention
+      - name: workplace_accident_prevention
         sql: '{CUBE}."30692_state_whether_business_has_workplace_accident_prevention_"'
         type: string
 
-      - name: state_whether_business_has_policies_explicitly_address_hu
+      - name: policies_explicitly_address
         sql: '{CUBE}."30691_state_whether_business_has_policies_explicitly_address_hu"'
         type: string
 
       - name: answer_start_date
         sql: answer_start_date
         type: time
+        shown: true
 
       - name: answer_end_date
         sql: answer_end_date

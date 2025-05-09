@@ -15,7 +15,7 @@ views:
   - name: example_view
 
     cubes:
-      - join_path: bespoke_4571_s1_1_policies_related_own_workforce
+      - join_path: bespoke_4571
         includes:
           - answer_id
           - company_unit_id
