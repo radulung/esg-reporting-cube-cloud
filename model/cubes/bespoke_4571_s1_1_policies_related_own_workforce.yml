@@ -8,7 +8,6 @@ cubes:
       - name: answer_id
         sql: answer_id
         type: number
-        shown: true
 
       - name: company_unit_id
         sql: company_unit_id
@@ -99,7 +98,6 @@ cubes:
       - name: commitments_related_inclusion
         sql: '{CUBE}."30695_disclose_any_specific_policy_commitments_related_inclusio"'
         type: string
-        shown: true
 
       - name: policies
         sql: '{CUBE}."30696_disclose_whether_how_business_has_implemented_policies_en"'
@@ -140,7 +138,6 @@ cubes:
       - name: answer_start_date
         sql: answer_start_date
         type: time
-        shown: true
 
       - name: answer_end_date
         sql: answer_end_date
