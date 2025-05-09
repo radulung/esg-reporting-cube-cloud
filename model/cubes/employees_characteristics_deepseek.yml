@@ -1,0 +1,173 @@
+cubes:
+  - name: employees_characteristics
+    sql: SELECT * FROM client_2874.bespoke_4484_s1_6_characteristics_undertaking_s_employees_emplo
+    
+    # Keep the cube private and expose only necessary views
+    public: false
+
+    dimensions:
+      - name: answer_id
+        sql: answer_id
+        type: number
+
+      # Date dimensions
+      - name: answer_start_date
+        sql: answer_start_date
+        type: time
+
+      - name: answer_end_date
+        sql: answer_end_date
+        type: time
+
+      - name: open_date
+        sql: open_date
+        type: time
+
+      - name: close_date
+        sql: close_date
+        type: time
+
+      # Location dimensions
+      - name: company_unit_id
+        sql: company_unit_id
+        type: number
+
+      - name: location_id
+        sql: location_id
+        type: number
+
+      - name: company_unit_name
+        sql: company_unit_name
+        type: string
+
+      - name: immediate_parent_name
+        sql: immediate_parent_name
+        type: string
+
+      - name: company
+        sql: company
+        type: string
+
+      - name: level_1
+        sql: level_1
+        type: string
+
+      - name: facility_type
+        sql: facility_type
+        type: string
+
+      - name: company_unit_type
+        sql: company_unit_type
+        type: string
+
+      - name: city
+        sql: city
+        type: string
+
+      - name: continent
+        sql: continent
+        type: string
+
+      - name: country
+        sql: country
+        type: string
+
+      - name: state
+        sql: state
+        type: string
+
+      - name: country_code
+        sql: country_code
+        type: string
+
+      - name: state_code
+        sql: state_code
+        type: string
+
+      # Employee characteristic dimensions
+      - name: does_this_country_have_more_than_50_employees
+        sql: "29883_does_this_country_have_more_than_50_employees"
+        type: string
+
+      - name: state_country_business_operates
+        sql: "29882_state_country_business_operates"
+        type: string
+
+    measures:
+      # Count measures
+      - name: count
+        type: count
+
+      # Employee count measures
+      - name: number_employees_with_non_guaranteed_hours
+        sql: "29892_state_number_employees_with_non_guaranteed_hours_own_work"
+        type: sum
+
+      - name: number_female_employees_with_non_guaranteed_hours
+        sql: "29891_state_number_female_employees_with_non_guaranteed_hours_o"
+        type: sum
+
+      - name: number_full_time_employees
+        sql: "29886_state_number_full_time_employees_own_workforce_this_count"
+        type: sum
+
+      - name: number_full_time_female_employees
+        sql: "29885_state_number_full_time_female_employees_own_workforce_thi"
+        type: sum
+
+      - name: number_full_time_male_employees
+        sql: "29884_state_number_full_time_male_employees_own_workforce_this_"
+        type: sum
+
+      - name: number_male_employees_with_non_guaranteed_hours
+        sql: "29890_state_number_male_employees_with_non_guaranteed_hours_own"
+        type: sum
+
+      - name: number_temporary_employees
+        sql: "29889_state_number_temporary_employees_own_workforce_this_count"
+        type: sum
+
+      - name: number_temporary_female_employees
+        sql: "29888_state_number_temporary_female_employees_own_workforce_thi"
+        type: sum
+
+      - name: number_temporary_male_employees
+        sql: "29887_state_number_temporary_male_employees_own_workforce_this_"
+        type: sum
+
+      # Calculated measures
+      - name: percentage_female_employees
+        sql: "{number_female_employees_with_non_guaranteed_hours} / NULLIF({number_employees_with_non_guaranteed_hours}, 0) * 100.0"
+        type: number
+        format: percent
+
+      - name: percentage_temporary_employees
+        sql: "{number_temporary_employees} / NULLIF(({number_full_time_employees} + {number_temporary_employees}), 0) * 100.0"
+        type: number
+        format: percent
+
+    pre_aggregations:
+      - name: employee_stats_by_location
+        measures:
+          - count
+          - number_employees_with_non_guaranteed_hours
+          - number_full_time_employees
+          - number_temporary_employees
+          - percentage_female_employees
+          - percentage_temporary_employees
+        dimensions:
+          - country
+          - state
+          - city
+          - facility_type
+
+      - name: employee_stats_by_time
+        measures:
+          - count
+          - number_full_time_employees
+          - number_temporary_employees
+        time_dimension: answer_start_date
+        granularity: month
+        dimensions:
+          - company
+          - level_1
